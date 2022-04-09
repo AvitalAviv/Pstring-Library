@@ -23,11 +23,15 @@ We were assigned a task to implement basic functions regarding pStrings in the a
 
 
 ## Project Files
-Starts from **run_main.s** that contains main function - the user input two string and their lengths, and an option number to pick an option on the menu. In additional, the function builds two Pstrings from the user's input as described - first char is the length of the string, and from the second the user's input string. 
+## run_main.s
+Starts from **run_main.s** that contains main function - the user input two string and their lengths (memory allocated on the stack frame) and an option number (integer) to pick an option on the menu. The function builds two Pstrings from the user's input as described.
 
-**func_select.s** contains switch case implementation - the arguments are the two Pstrings and the choosen option from the menu. 
+## func_select.s
+contains switch case implementation using jump table. First, clearing the offset between the user's choice and the cases on the jump table (In our case an off set of 50).  Each choice from the user can result in two outcomes: invoking a proper function from pstring.s or a default case which will print the prompt 'invalid option!'
 
-**pstring.s** contains all library functions (in brackets the number option):
+## pstring.s
+
+contains all library functions (in brackets the number option):
 
 **pstrlen (50/60)**:
 input - Pstring, output - length
